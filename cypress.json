@@ -1,0 +1,4 @@
+{
+  "baseUrl": "https://www.staging-01.finder.tools",
+  "ignoreTestFiles": "*.js"
+}
