@@ -3,8 +3,6 @@ Given('the user is on the page', () => {
 })
 
 Given(/the user is on the (.+) page/, (currentPageType) => {
-  cy.log(currentPageType)
-
   cy.visit('/money/masthead-one-column-test-page')
 })
 
