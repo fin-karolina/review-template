@@ -80,3 +80,24 @@ Then('the question policy should disappear', () => {
 Then('the "Your Question" field should be focused', () => {
   cy.focused().should('have.id', 'comment')
 });
+
+Then('the user should see the hotstats boxes', () => {
+  cy.get('.hotStats').should('be.visible')
+});
+
+Then('every box should present relevant information', () => {
+  cy.get('.hotStatsBox__content').each(($hotStatBox) => {
+    cy.wrap($hotStatBox).should('not.be.empty')
+  })
+});
+
+Then('the user should see the table with product details', () => {
+  cy.get('.infoBox__table')
+});
+
+Then('each tab should present relevant information', () => {
+  cy.get('.infoBox__tableWrapper [data-toggle="tab"]').each(($tabHeading) => {
+    cy.wrap($tabHeading).click()
+    cy.get($tabHeading.attr('href')).should('be.visible')
+  })
+});

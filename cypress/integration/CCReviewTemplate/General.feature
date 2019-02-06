@@ -142,9 +142,21 @@ Feature: CCReviewTemplate - General
       Then the user should see the question policy
       And the user should see "Accept and submit question" button
     
-    @current
     Scenario: Accepting the question policy
       Given the user see the question policy
       When the user clicks on "Accept and submit question" button
       Then the question policy should disappear
       And the "Your Question" field should be focused
+
+    # As a user interested in product
+    # I want to see the most important features of the product
+    # So that I have the most important information available in the concise form
+
+    Scenario: Displaying hotstats boxes
+      Then the user should see the hotstats boxes
+      And every box should present relevant information
+
+    @current
+    Scenario: Displaying product detail table
+      Then the user should see the table with product details
+      And each tab should present relevant information
