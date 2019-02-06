@@ -107,7 +107,6 @@ Feature: CCReviewTemplate - General
     Scenario: Staff response counter
       Then the user should see the number of staff responses to the questions asked by the customers
 
-    @current
     Scenario: Presenting single comment
       When there is a comment
       Then the user should see the author name
@@ -116,4 +115,36 @@ Feature: CCReviewTemplate - General
       And the user should see the actual comment
       And the user should see "Reply" button
 
+    Scenario: Non-logged-in user adding a comment
+      Given the user is not logged-in
+      Then the user should see the option to create an account
+
+    Scenario: Asking question entry point
+      Then the user should see "Ask a question" button
     
+    Scenario: Presenting question form
+      When the user clicks on "Ask a question" button 
+      Then the user should see ask a question form
+
+    Scenario: Typing a question
+      Given the question form is visible
+      Then the user should see the display name field
+      Then the user should see the email field
+      Then the user should see the question field
+      Then the user should see the newsletter subscription checkbox
+      Then the user should see the reply notification checkbox
+      Then the user should see the "Log in with Facebook" button
+      Then the user should see the "Submit question" button
+
+    Scenario: Displaying question policy
+      Given the question form is visible
+      When the user clicks on "Your Question" field
+      Then the user should see the question policy
+      And the user should see "Accept and submit question" button
+    
+    @current
+    Scenario: Accepting the question policy
+      Given the user see the question policy
+      When the user clicks on "Accept and submit question" button
+      Then the question policy should disappear
+      And the "Your Question" field should be focused
