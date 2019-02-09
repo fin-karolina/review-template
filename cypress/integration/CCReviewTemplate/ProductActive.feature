@@ -7,5 +7,5 @@ Feature: CCReviewTemplate - Product Active
 
   Scenario: Applying for the product
     Given the user is on the active product review page
-    Then the redirect CTA button is visible
-    And the CTA button should point to redirect page
+    Then the redirect CTA buttons should be visible
+    And the CTA buttons should point to redirect page

@@ -14,7 +14,7 @@ Then('the user should see the product picture', () => {
   cy.get('.productImage').should('be.visible')
 })
 
-When('the user clicks on "Show more button" under short description', () => {
+When('the user clicks on "Show more" button under short description', () => {
   cy.get('.creditCard__desktopInfo .js-expander-trigger').click()
 })
 

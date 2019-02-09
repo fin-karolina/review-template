@@ -15,7 +15,7 @@ Feature: CCReviewTemplate - General
       And the user should see the product picture
 
     Scenario: Complete product description
-      When the user clicks on "Show more button" under short description
+      When the user clicks on "Show more" button under short description
       Then the user should see the complete product description
 
     # As a user
@@ -156,7 +156,11 @@ Feature: CCReviewTemplate - General
       Then the user should see the hotstats boxes
       And every box should present relevant information
 
-    @current
     Scenario: Displaying product detail table
       Then the user should see the table with product details
       And each tab should present relevant information
+
+      @current
+      Scenario: Handling long descriptions
+      When the user clicks on "Show more" button
+      Then the user should see more information for the given section
