@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://www.finder.com.au/",
+  "baseUrl": "https://www.staging-01.finder.tools",
   "ignoreTestFiles": "*.js",
   "video": false
 }

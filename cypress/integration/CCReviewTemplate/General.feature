@@ -7,13 +7,14 @@ Feature: CCReviewTemplate - General
     # As a user
     # I want to see the most important information discribing product at the very beginning of the page
     # So that I can have them at a glance
-    
+
     Scenario: Basic product information
       Then the user should see the product title
       And the user should see the subtitle
       And the user should see the product description
       And the user should see the product picture
 
+    @current
     Scenario: Complete product description
       When the user clicks on "Show more" button under short description
       Then the user should see the complete product description
@@ -160,7 +161,39 @@ Feature: CCReviewTemplate - General
       Then the user should see the table with product details
       And each tab should present relevant information
 
-      @current
-      Scenario: Handling long descriptions
+    Scenario: Handling long descriptions
       When the user clicks on "Show more" button
       Then the user should see more information for the given section
+
+    Scenario: Displaying desclaimer trigger button
+      Then the user should see desclaimer trigger button
+  
+    Scenario: Opening desclaimer
+      Given the disclaimer trigger button is displayed
+      When the user clicks on the disclaimer trigger button
+      Then the disclaimer modal should be displayed
+
+
+    Scenario: Presenting disclaimer
+      Given the disclaimer modal is displayed
+      Then the disclaimer modal should have the title
+      Then the disclaimer modal should have the content
+      Then the disclaimer modal should have the close button in the header
+      Then the disclaimer modal should have the close button in the footer
+
+    @current
+    Scenario Outline: Closing disclaimer
+      Given the disclaimer modal is displayed
+      When the user clicks on <element> element
+      Then the modal disclaimer should be closed 
+
+      Examples:
+      | element                | 
+      | close button in header |
+      | close button in footer |
+      | modal overlay          |
+
+    Scenario: Template SEO properties
+      Given the search engine bot is on the the product review page
+      Then the bot should see the page title in H1
+      And the bot should see the page subtitle in H2
