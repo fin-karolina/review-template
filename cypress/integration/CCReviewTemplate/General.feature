@@ -149,6 +149,11 @@ Feature: CCReviewTemplate - General
       Then the question policy should disappear
       And the "Your Question" field should be focused
 
+    @current
+    Scenario: Displaying ask question disclimer
+      Given the question form is visible
+      Then the user should see the ask question disclaimer
+
     # As a user interested in product
     # I want to see the most important features of the product
     # So that I have the most important information available in the concise form

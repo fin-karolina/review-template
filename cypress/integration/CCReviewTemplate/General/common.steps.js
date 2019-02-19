@@ -28,3 +28,38 @@ Then('the user should see more information for the given section', () => {
     cy.wrap($expander).find('.js-expander-trigger').should('contain', 'Show less')
   });
 });
+
+Then('the user should see the hotstats boxes', () => {
+  cy.get('.hotStats').should('be.visible')
+});
+
+Then('every box should present relevant information', () => {
+  cy.get('.hotStatsBox__content').each(($hotStatBox) => {
+    cy.wrap($hotStatBox).should('not.be.empty')
+  })
+});
+
+Then('the user should see the table with product details', () => {
+  cy.get('.infoBox__table')
+});
+
+Then('each tab should present relevant information', () => {
+  cy.get('.infoBox__tableWrapper [data-toggle="tab"]').each(($tabHeading) => {
+    cy.wrap($tabHeading).click()
+    cy.get($tabHeading.attr('href')).should('be.visible')
+  })
+});
+
+When(/the user cliks on "(.+)" link/, (linkLabel) => {
+  cy.contains(linkLabel).click()
+})
+
+Then('the user should see the modal showing the bookmaring option', () => {
+  cy.get('#save-card-modal-2-content').should('be.visible')
+})
+
+Then(/the user should see "(.+)" link/, (linkLabel) => {
+  cy.contains(linkLabel)
+    .should('exist')
+    .and('have.attr', 'href')
+})
