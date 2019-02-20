@@ -25,6 +25,7 @@ Feature: CCReviewTemplate - General
 
     Scenario: Page up-to-date indicator
       Then the user should see the date of last page update
+      And the date should be dispayed with proper format
 
     # As a user
     # I want to follow my location on the page
@@ -178,7 +179,6 @@ Feature: CCReviewTemplate - General
       When the user clicks on the disclaimer trigger button
       Then the disclaimer modal should be displayed
 
-
     Scenario: Presenting disclaimer
       Given the disclaimer modal is displayed
       Then the disclaimer modal should have the title
@@ -186,7 +186,6 @@ Feature: CCReviewTemplate - General
       Then the disclaimer modal should have the close button in the header
       Then the disclaimer modal should have the close button in the footer
 
-    @current
     Scenario Outline: Closing disclaimer
       Given the disclaimer modal is displayed
       When the user clicks on <element> element
@@ -202,3 +201,56 @@ Feature: CCReviewTemplate - General
       Given the search engine bot is on the the product review page
       Then the bot should see the page title in H1
       And the bot should see the page subtitle in H2
+
+    Scenario: Displaying save for later modal
+      Given the save for later modal is opened
+      Then the user should see the title
+      And the user should see the field with a link
+      And the user should see the "Copy link" button
+      And the user should see the email address field
+      And the user should see the "Email me this card" button
+      And the user should see the modal disclaimer
+      And the user should see the close button
+
+    Scenario Outline: Closing modal
+      Given the save for later modal is opened
+      When the user clicks on <element> element
+      Then the modal should be closed
+
+      Examples:
+      | element      |
+      | close button |
+      | modal overlay|
+
+    Scenario Outline: Entering email address
+      Given the save for later modal is opened
+      When the user enters <email_address> email address
+      And the user clicks on "Email me this card" button
+      Then the field should have <colour> border
+      And the user should see the <message> message
+
+      Examples:
+      | email address    | colour | message                                               |
+      | test@example.com | green  | "Success! We've emailed you a link to this product."  |
+      | test             | red    | "Not a valid email address"                           |
+
+    Scenario: Copying a link
+      Given the save for later modal is opened
+      When the user clicks on "Copy link" button
+      Then the field value should be selected
+      And the user should see success message
+      And the link should be present in a clipboard  
+
+    Scenario: Displaying sidebar
+      Given the sidebar is opened
+      Then the sidebard should contain niche category menu
+      And the sidebard should contain providers menu
+      And the sidebard should contain tips box
+      And the sidebard should contain calculator box
+      And the sidebard should contain newsletter form
+      And the sidebard should contain disclaimer
+
+    Scenario: Presenting disclaimer
+      Given the disclaimer is displaing
+      Then the disclaimer should contain "Privacy & Cookies Policy" link
+      Then the disclaimer should contain "Terms of Use, Disclaimer & Privacy Policy" link
