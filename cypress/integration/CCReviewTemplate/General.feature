@@ -14,7 +14,6 @@ Feature: CCReviewTemplate - General
       And the user should see the product description
       And the user should see the product picture
 
-    @current
     Scenario: Complete product description
       When the user clicks on "Show more" button under short description
       Then the user should see the complete product description
@@ -150,7 +149,6 @@ Feature: CCReviewTemplate - General
       Then the question policy should disappear
       And the "Your Question" field should be focused
 
-    @current
     Scenario: Displaying ask question disclimer
       Given the question form is visible
       Then the user should see the ask question disclaimer
@@ -202,6 +200,7 @@ Feature: CCReviewTemplate - General
       Then the bot should see the page title in H1
       And the bot should see the page subtitle in H2
 
+    @current
     Scenario: Displaying save for later modal
       Given the save for later modal is opened
       Then the user should see the title
@@ -212,9 +211,10 @@ Feature: CCReviewTemplate - General
       And the user should see the modal disclaimer
       And the user should see the close button
 
+    @current
     Scenario Outline: Closing modal
       Given the save for later modal is opened
-      When the user clicks on <element> element
+      When the user clicks on <element> modal closing trigger
       Then the modal should be closed
 
       Examples:

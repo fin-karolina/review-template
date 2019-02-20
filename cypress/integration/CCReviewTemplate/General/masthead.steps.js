@@ -26,6 +26,14 @@ Then('the user should see the date of last page update', () => {
   cy.get('.publ-date').should('be.visible')
 })
 
+Then('the date should be dispayed with proper format', () => {
+  cy.get('.publ-date').invoke('text').then(dateString => {
+    expect(
+      Cypress.moment(dateString, 'D MMMM YYYY', true).isValid()
+    ).to.equal(true)
+  })
+});
+
 Then('the user should see the Explore category button', () => {
   cy.get('.sideNav__categoryName').should('be.visible')
 })
