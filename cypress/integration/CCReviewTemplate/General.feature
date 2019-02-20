@@ -200,7 +200,6 @@ Feature: CCReviewTemplate - General
       Then the bot should see the page title in H1
       And the bot should see the page subtitle in H2
 
-    @current
     Scenario: Displaying save for later modal
       Given the save for later modal is opened
       Then the user should see the title
@@ -211,7 +210,6 @@ Feature: CCReviewTemplate - General
       And the user should see the modal disclaimer
       And the user should see the close button
 
-    @current
     Scenario Outline: Closing modal
       Given the save for later modal is opened
       When the user clicks on <element> modal closing trigger
@@ -221,7 +219,8 @@ Feature: CCReviewTemplate - General
       | element      |
       | close button |
       | modal overlay|
-
+    
+    @current
     Scenario Outline: Entering email address
       Given the save for later modal is opened
       When the user enters <email_address> email address
@@ -230,9 +229,9 @@ Feature: CCReviewTemplate - General
       And the user should see the <message> message
 
       Examples:
-      | email address    | colour | message                                               |
-      | test@example.com | green  | "Success! We've emailed you a link to this product."  |
-      | test             | red    | "Not a valid email address"                           |
+      | email_address    | colour | message                                               |
+      | test@example.com | green  | Success! We've emailed you a link to this product.    |
+      | test             | red    | Not a valid email address                             |
 
     Scenario: Copying a link
       Given the save for later modal is opened

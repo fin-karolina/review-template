@@ -46,3 +46,29 @@ When(/the user clicks on (.+) modal closing trigger/, (element) => {
 Then('the modal should be closed', () => {
   cy.get('#save-card-modal-2-content').should('not.be.visible')
 });
+
+When(/the user enters (.+) email address/, (emailAddress) => {
+  cy.log(emailAddress)
+  cy.get('#email-card-input-cta-2').type(emailAddress)
+});
+
+When('the user clicks on "Email me this card" button', () => {
+  cy.get('@modal').within(() => cy.contains('Email me this card').click())
+});
+
+Then(/the field should have (.+) border/, (colour) => {
+  const classes = {
+    'red': 'is-invalid',
+    'green': 'is-valid'
+  };
+
+  cy.get('#email-card-input-cta-2')
+    .invoke('hasClass', classes[colour])
+    .should('be.true')
+});
+
+Then(/the user should see the (.+) message/, (message) => {
+  cy.get('@modal').within(() => {
+    cy.contains(message).should('be.visible');
+  })
+});
