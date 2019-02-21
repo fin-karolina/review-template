@@ -63,8 +63,7 @@ Then(/the field should have (.+) border/, (colour) => {
   };
 
   cy.get('#email-card-input-cta-2')
-    .invoke('hasClass', classes[colour])
-    .should('be.true')
+    .should('have.class', classes[colour])
 });
 
 Then(/the user should see the (.+) message/, (message) => {

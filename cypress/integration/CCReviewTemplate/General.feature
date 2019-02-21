@@ -238,17 +238,17 @@ Feature: CCReviewTemplate - General
       And the user should see success message
       And the link should be present in a clipboard  
 
-    @current
     Scenario: Displaying sidebar
       Given the sidebar is opened
-      Then the sidebard should contain niche category menu
-      And the sidebard should contain providers menu
-      And the sidebard should contain tips box
-      And the sidebard should contain calculator box
-      And the sidebard should contain newsletter form
-      And the sidebard should contain disclaimer
+      Then the sidebar should contain niche category menu
+      And the sidebar should contain providers menu
+      And the sidebar should contain tips box
+      And the sidebar should contain calculator box
+      And the sidebar should contain newsletter form
+      And the sidebar should contain disclaimer
 
+    @current
     Scenario: Presenting disclaimer
-      Given the disclaimer is displaing
+      Given the sidebar is opened
       Then the disclaimer should contain "Privacy & Cookies Policy" link
-      Then the disclaimer should contain "Terms of Use, Disclaimer & Privacy Policy" link
+      And the disclaimer should contain "Terms of Use, Disclaimer & Privacy Policy" link
