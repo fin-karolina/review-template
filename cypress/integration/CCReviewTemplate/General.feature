@@ -220,7 +220,6 @@ Feature: CCReviewTemplate - General
       | close button |
       | modal overlay|
     
-    @current
     Scenario Outline: Entering email address
       Given the save for later modal is opened
       When the user enters <email_address> email address
@@ -236,10 +235,10 @@ Feature: CCReviewTemplate - General
     Scenario: Copying a link
       Given the save for later modal is opened
       When the user clicks on "Copy link" button
-      Then the field value should be selected
       And the user should see success message
       And the link should be present in a clipboard  
 
+    @current
     Scenario: Displaying sidebar
       Given the sidebar is opened
       Then the sidebard should contain niche category menu

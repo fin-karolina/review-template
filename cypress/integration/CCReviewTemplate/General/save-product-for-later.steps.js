@@ -72,3 +72,17 @@ Then(/the user should see the (.+) message/, (message) => {
     cy.contains(message).should('be.visible');
   })
 });
+
+When('the user clicks on "Copy link" button', () => {
+  cy.get('@modal').within(() => {
+    cy.contains('Copy link').click()
+  })
+});
+
+Then('the user should see success message', () => {
+  cy.contains('Product link copied!').should('be.visible')
+});
+
+Then('the link should be present in a clipboard', () => {
+  // TODO: implement once https://github.com/cypress-io/cypress/issues/2752 is resolved
+});
