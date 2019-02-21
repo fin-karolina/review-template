@@ -2,14 +2,15 @@ Given('the user is on the product review page', () => {
   cy.visit('/american-express-explorer-credit-card-review')
 })
 
-// Tooltip test - doesn't work
-// When('the user move the mouse over the i icon', () => {
-//   cy.get('.i_infobox_tooltip:eq(0)').trigger('mouseover').as('tooltipBubble')
-// })
+// Tooltip test
+When('the user move the mouse over the i icon', () => {
+  // TODO: use a proper mouse over event once https://github.com/cypress-io/cypress/issues/10 is solved
+cy.get('.i_infobox_tooltip:eq(0)').invoke('attr', 'tabindex', '0').trigger('focus')
+})
 
-// Then('the user should see the tooltip bubble', () => {
-//   cy.get('@tooltipBubble').should('have.class', 'tippy-active')
-// });
+Then('the user should see the tooltip bubble', () => {
+  cy.get('.i_infobox_tooltip:eq(0)').find('span').should('have.class', 'tippy-active')
+});
 
 
 When('the user clicks on "Show more" button', () => {

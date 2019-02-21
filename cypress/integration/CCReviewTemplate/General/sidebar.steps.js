@@ -22,6 +22,14 @@ Then('the sidebar should contain newsletter form', () => {
   cy.get('.sidebar_email_signup').should('exist')
 });
 
+When('the user clicks on the close button', () => {
+  cy.get('.sideNav__closeButton').click()
+});
+
+Then('the sidebar should be closed', () => {
+  cy.get('#sideNav__tray').should('not.be.visible')
+});
+
 Then('the sidebar should contain disclaimer', () => {
   cy.get('#privacyDescription')
 });

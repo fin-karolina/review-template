@@ -91,10 +91,11 @@ Feature: CCReviewTemplate - General
       And the user should see the name of the expert
       And the user should see the email
       And the user should see the expert summary
-      
-    # Scenario: Displaying tooltip bubble
-    #   When the user move the mouse over the i icon
-    #   Then the user should see the tooltip bubble 
+
+    @current
+    Scenario: Displaying tooltip bubble
+      When the user move the mouse over the i icon
+      Then the user should see the tooltip bubble 
 
     # As a user interested in the product
     # I want to ask a question about the product and see the responses
@@ -247,7 +248,11 @@ Feature: CCReviewTemplate - General
       And the sidebar should contain newsletter form
       And the sidebar should contain disclaimer
 
-    @current
+    Scenario: Closing sidebar
+      Given the sidebar is opened
+      When the user clicks on the close button
+      Then the sidebar should be closed
+
     Scenario: Presenting disclaimer
       Given the sidebar is opened
       Then the disclaimer should contain "Privacy & Cookies Policy" link
