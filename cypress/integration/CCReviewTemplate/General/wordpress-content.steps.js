@@ -37,14 +37,18 @@ Then(/the user should see "(.+)" expander button/, (buttonLabel) => {
   })
 });
 
-When('the user see a section with CTAs', () => {
-  cy.get('.wordpressContent > .expander-root').eq(0).as('howToApplySection')
+When(/the user see a "(.+)" section with CTAs/, (sectionName) => {
+  cy.contains(sectionName).then(($sectionHeading) => {
+    const $sectionRoot = $sectionHeading.parents('.expander-root');
+
+    cy.wrap($sectionRoot).as('sectionRoot')
+  })
 });
 
-Then('the user should see "Apply now" CTA', () => {
-  cy.get('@howToApplySection').contains('Apply Now').should('be.visible')
+Then(/the the section should be followed by "(.+)" CTA/, (buttonLabel) => {
+  cy.get('@sectionRoot').next().contains('.luna-button', buttonLabel).should('be.visible')
 });
 
-Then('the user should see "More info" CTA', () => {
-  cy.get('.luna-section__content.wordpressContent .cta-root a').eq(1).should('be.visible')
+Then(/the the section should contain "(.+)" CTA/, (buttonLabel) => {
+  cy.get('@sectionRoot').contains('.luna-button', buttonLabel).should('be.visible')
 });

@@ -44,17 +44,9 @@ Feature: CCReviewTemplate - General
     # I want to save the product information
     # So that I can get back to the product later
 
-    @current
     Scenario: Saving the product
       When the user cliks on "Save this card for later" link
       Then the user should see the modal showing the bookmaring option
-
-    # As a given product owner
-    # I want to share my opinion on this product
-    # So that other users can make better choices
-
-    Scenario: Rating the product
-      Then the user should see "Rate this card" link
 
     # As a user interested in the other similar products
     # I want to navigate through product category
@@ -96,65 +88,7 @@ Feature: CCReviewTemplate - General
 
     Scenario: Displaying tooltip bubble
       When the user move the mouse over the i icon
-      Then the user should see the tooltip bubble 
-
-    # As a user interested in the product
-    # I want to ask a question about the product and see the responses
-    # So that I increase my awareness about the product
-
-    Scenario: Displaying Ask an Expert section
-      Then the user should see "Ask an Expert" section
-      And the user should see "Ask a question" button
-      # And the user should see the responses to questions
-
-    Scenario: Staff response counter
-      When there are some questions
-      Then the user should see the number of staff responses to the questions asked by the customers
-
-    Scenario: Presenting single comment
-      When there is a comment
-      Then the user should see the author name
-      And the user should see the author avatar
-      And the user should see the date
-      And the user should see the actual comment
-      And the user should see "Reply" button
-
-    Scenario: Non-logged-in user adding a comment
-      Given the user is not logged-in
-      Then the user should see the option to create an account
-
-    Scenario: Asking question entry point
-      Then the user should see "Ask a question" button
-    
-    Scenario: Presenting question form
-      When the user clicks on "Ask a question" button 
-      Then the user should see ask a question form
-
-    Scenario: Typing a question
-      Given the question form is visible
-      Then the user should see the display name field
-      Then the user should see the email field
-      Then the user should see the question field
-      Then the user should see the newsletter subscription checkbox
-      Then the user should see the reply notification checkbox
-      Then the user should see the "Log in with Facebook" button
-      Then the user should see the "Submit question" button
-
-    Scenario: Displaying question policy
-      Given the question form is visible
-      When the user clicks on "Your Question" field
-      Then the user should see the question policy
-      And the user should see "Accept and submit question" button
-    
-    Scenario: Accepting the question policy
-      Given the user see the question policy
-      When the user clicks on "Accept and submit question" button
-      Then the question policy should disappear
-      And the "Your Question" field should be focused
-
-    Scenario: Displaying ask question disclimer
-      Given the question form is visible
-      Then the user should see the ask question disclaimer
+      Then the user should see the tooltip bubble
 
     # As a user interested in product
     # I want to see the most important features of the product
@@ -203,7 +137,6 @@ Feature: CCReviewTemplate - General
       Then the bot should see the page title in H1
       And the bot should see the page subtitle in H2
 
-    @current
     Scenario: Displaying save for later modal
       Given the save for later modal is opened
       Then the user should see the title
@@ -214,7 +147,6 @@ Feature: CCReviewTemplate - General
       And the user should see the modal disclaimer
       And the user should see the close button
 
-    @current 
     Scenario Outline: Closing modal
       Given the save for later modal is opened
       When the user clicks on <element> modal closing trigger
@@ -223,7 +155,7 @@ Feature: CCReviewTemplate - General
       Examples:
       | element      |
       | close button |
-      # | modal overlay|
+      | modal overlay|
     
     Scenario Outline: Entering email address
       Given the save for later modal is opened
@@ -279,11 +211,22 @@ Feature: CCReviewTemplate - General
     Scenario: Expander section structure
       When the user see an expander section
       Then the user should see a section heading with icon
-      Then the user should see two list elements in expander fixed section
-      Then the user should see "Show more" expander button
+      And the user should see two list elements in expander fixed section
+      And the user should see "Show more" expander button
 
-    Scenario: Presenting section with CTAs
-      When the user see a section with CTAs
-      Then the user should see "Apply now" CTA
-      Then the user should see "More info" CTA
+    @current
+    Scenario Outline: Presenting section followed by CTAs
+      When the user see a "<sectionName>" section with CTAs
+      Then the the section should be followed by "Go to" CTA
+      And the the section should be followed by "More info" CTA
+
+    Examples:
+      | sectionName         |
+      | How To Apply        |
+      | Key Features & Fees |
+    
+    @current
+    Scenario: Presenting How To Apply section with CTAs
+      When the user see a "How To Apply" section with CTAs
+      Then the the section should contain "Apply Now" CTA
 
