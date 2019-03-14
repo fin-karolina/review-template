@@ -1,4 +1,5 @@
 
+@product-review
 Feature: CCReviewTemplate - General
 
   Background: 
@@ -43,6 +44,7 @@ Feature: CCReviewTemplate - General
     # I want to save the product information
     # So that I can get back to the product later
 
+    @current
     Scenario: Saving the product
       When the user cliks on "Save this card for later" link
       Then the user should see the modal showing the bookmaring option
@@ -92,7 +94,6 @@ Feature: CCReviewTemplate - General
       And the user should see the email
       And the user should see the expert summary
 
-    @current
     Scenario: Displaying tooltip bubble
       When the user move the mouse over the i icon
       Then the user should see the tooltip bubble 
@@ -104,9 +105,10 @@ Feature: CCReviewTemplate - General
     Scenario: Displaying Ask an Expert section
       Then the user should see "Ask an Expert" section
       And the user should see "Ask a question" button
-      And the user should see the responses to questions
+      # And the user should see the responses to questions
 
     Scenario: Staff response counter
+      When there are some questions
       Then the user should see the number of staff responses to the questions asked by the customers
 
     Scenario: Presenting single comment
@@ -201,6 +203,7 @@ Feature: CCReviewTemplate - General
       Then the bot should see the page title in H1
       And the bot should see the page subtitle in H2
 
+    @current
     Scenario: Displaying save for later modal
       Given the save for later modal is opened
       Then the user should see the title
@@ -211,6 +214,7 @@ Feature: CCReviewTemplate - General
       And the user should see the modal disclaimer
       And the user should see the close button
 
+    @current 
     Scenario Outline: Closing modal
       Given the save for later modal is opened
       When the user clicks on <element> modal closing trigger
@@ -219,7 +223,7 @@ Feature: CCReviewTemplate - General
       Examples:
       | element      |
       | close button |
-      | modal overlay|
+      # | modal overlay|
     
     Scenario Outline: Entering email address
       Given the save for later modal is opened
@@ -229,9 +233,9 @@ Feature: CCReviewTemplate - General
       And the user should see the <message> message
 
       Examples:
-      | email_address    | colour | message                                               |
-      | test@example.com | green  | Success! We've emailed you a link to this product.    |
-      | test             | red    | Not a valid email address                             |
+      | email_address    | colour | message                                            |
+      | test@example.com | green  | Success! We've emailed you a link to this product. |
+      | test             | red    | Not a valid email address                          |
 
     Scenario: Copying a link
       Given the save for later modal is opened
@@ -257,3 +261,29 @@ Feature: CCReviewTemplate - General
       Given the sidebar is opened
       Then the disclaimer should contain "Privacy & Cookies Policy" link
       And the disclaimer should contain "Terms of Use, Disclaimer & Privacy Policy" link
+
+    
+    Scenario: Wordpress content presence 
+      Then the user should see page content below "Expert Review" box
+
+    Scenario Outline: Wordpress expander structure
+      Then the user should see the <sectionName> expander section
+      
+      Examples:
+      | sectionName         |
+      | How To Apply        |
+      | Card Benefits       |
+      | Key Features & Fees |
+
+   
+    Scenario: Expander section structure
+      When the user see an expander section
+      Then the user should see a section heading with icon
+      Then the user should see two list elements in expander fixed section
+      Then the user should see "Show more" expander button
+
+    Scenario: Presenting section with CTAs
+      When the user see a section with CTAs
+      Then the user should see "Apply now" CTA
+      Then the user should see "More info" CTA
+

@@ -1,5 +1,5 @@
 Given('the user is on the product review page', () => {
-  cy.visit('/american-express-explorer-credit-card-review')
+  cy.visitReviewPage();
 })
 
 // Tooltip test

@@ -1,4 +1,4 @@
-
+@product-review
 Feature: CCReviewTemplate - Product Active
 
   # As a user interested in product
