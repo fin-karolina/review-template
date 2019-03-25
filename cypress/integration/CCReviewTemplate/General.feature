@@ -226,7 +226,6 @@ Feature: CCReviewTemplate - General
       | Key Features & Fees |
     
     @current
-    Scenario: Presenting How To Apply section with CTAs
-      When the user see a "How To Apply" section with CTAs
-      Then the the section should contain "Apply Now" CTA
-
+    Scenario: Having redirect links in correct form
+      When the CTA button has a link
+      Then the link must be a redirect link

@@ -1,5 +1,5 @@
 Given('the user is on the product review page', () => {
-  cy.visitReviewPage();
+  cy.visit('/citi-clear-platinum')
 })
 
 // Tooltip test
