@@ -3,11 +3,17 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "qa": "node bin/qa-scripts"
+  },
   "dependencies": {
     "cypress": "3.2.0",
     "cypress-cucumber-preprocessor": "^1.9.1"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true
+  },
+  "devDependencies": {
+    "commander": "^2.19.0"
   }
 }
