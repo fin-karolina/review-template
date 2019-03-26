@@ -45,3 +45,7 @@ When('the user clicks on Explore category button', () => {
 Then('the user should see the list of similar products', () => {
   cy.get('.sideNav__tray').should('have.class', 'is-open')
 })
+
+Then('the user should see "Terms and conditions apply" label in the masthead', () => {
+  cy.get('.productDetails__terms').should('be.visible')
+})

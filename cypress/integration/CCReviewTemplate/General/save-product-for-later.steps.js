@@ -1,3 +1,11 @@
+When(/the user cliks on "(.+)" link/, (linkLabel) => {
+  cy.contains(linkLabel).click()
+})
+
+Then('the user should see the modal showing the bookmaring option', () => {
+  cy.get('#save-card-modal-2-content').should('be.visible')
+})
+
 Given('the save for later modal is opened', () => {
   cy.get(`[data-modal-id="save-card-modal-2"]`).click()
 
