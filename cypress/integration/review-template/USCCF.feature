@@ -43,3 +43,8 @@ Feature: USCCF review page
 
   Scenario: Displaying star rating legend
     Then the user should see the star rating legend at the bottom of the page content
+
+    Scenario: Presenting disclaimer in save for later modal
+      Given the save for later modal is opened
+      Then the disclaimer should contain "Privacy Policy" link
+      And the disclaimer should contain "Terms" link
