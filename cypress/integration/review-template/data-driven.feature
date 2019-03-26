@@ -62,3 +62,7 @@ Feature: data-driven template components
     And the user should see success message
     And the link should be present in a clipboard
 
+  Scenario: Presenting disclaimer in save for later modal
+    Given the save for later modal is opened
+    Then the disclaimer should contain "Privacy & Cookies Policy" link
+    And the disclaimer should contain "Terms of Use, Disclaimer & Privacy Policy" link

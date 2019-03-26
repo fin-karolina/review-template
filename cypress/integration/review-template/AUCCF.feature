@@ -1,6 +1,6 @@
 Feature: AUCCF review page
 
-Background:
+  Background:
     Given the user is on a product review page
 
   Scenario: Basic product information
@@ -15,11 +15,6 @@ Background:
 
   Scenario: Displaying desclaimer trigger button
     Then the user should see desclaimer trigger button
-
-  Scenario: Presenting disclaimer in save for later modal
-    Given the save for later modal is opened
-    Then the disclaimer should contain "Privacy & Cookies Policy" link
-    And the disclaimer should contain "Terms of Use, Disclaimer & Privacy Policy" link
 
   Scenario Outline: Wordpress expander structure
     Then the user should see the <sectionName> expander section
