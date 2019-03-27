@@ -1,3 +1,4 @@
+@AUCCF:product-review
 Feature: AUCCF review page
 
   Background:

@@ -55,7 +55,6 @@ Feature: data-driven template components
       | test@example.com | green  | Success! We've emailed you a link to this product. |
       | test             | red    | Not a valid email address                          |
 
-
   Scenario: Copying a link in save for later modal
     Given the save for later modal is opened
     When the user clicks on "Copy link" button

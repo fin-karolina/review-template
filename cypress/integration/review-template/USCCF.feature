@@ -1,3 +1,4 @@
+@USCCF:product-review
 Feature: USCCF review page
 
   Background:
@@ -22,21 +23,20 @@ Feature: USCCF review page
     Then the user should see the 30-second take
 
   Scenario: 30-second take elements
-    Given the 30-second take is displayed
-    Then the 30-second take should consist of a heading
-    And the 30-second take should consist of the list of three features with specific icons
+    Then the user should see 30-second take heading
+    And the user should see the list of three 30-second features
 
   Scenario: Template SEO properties
     Given a search engine bot is on a product review page
     Then the bot should see the 30-second take heading in H4
-    And the bot should see the section name from WP content in H3
+    And the bot should see the section name from wordpress content in H3
 
-  Scenario: Dispalying an advertiser desclaimer
+  Scenario: Dispalying an advertiser disclosure
     Then the user should see the advertiser disclosure
     And the advertiser disclosure should be text
 
-  Scenario: Displaying WP content
-    Then the user should see the WP content 
+  Scenario: Displaying wordpress content
+    Then the user should see the wordpress content 
 
   Scenario: Displaying the disclaimer with Editorial note
     Then the user should see the disclaimer with the Editorial note in the page content
@@ -46,5 +46,5 @@ Feature: USCCF review page
 
     Scenario: Presenting disclaimer in save for later modal
       Given the save for later modal is opened
-      Then the disclaimer should contain "Privacy Policy" link
-      And the disclaimer should contain "Terms" link
+      Then the disclaimer should contain 'Privacy Policy' link
+      And the disclaimer should contain 'Terms' link

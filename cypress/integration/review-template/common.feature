@@ -1,3 +1,4 @@
+@product-review
 Feature: common scenarios applicable for all credit cards niches
 
   Background:
