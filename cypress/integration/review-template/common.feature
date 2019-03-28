@@ -75,25 +75,6 @@ Feature: common scenarios applicable for all credit cards niches
     Then the bot should see the page title in H1
     And the bot should see the page subtitle in H2
 
-  Scenario: Displaying sidebar
-    Given the sidebar is opened
-    Then the sidebar should contain niche category menu
-    And the sidebar should contain providers menu
-    And the sidebar should contain tips box
-    And the sidebar should contain calculator box
-    And the sidebar should contain newsletter form
-    And the sidebar should contain disclaimer
-
-  Scenario: Closing sidebar
-    Given the sidebar is opened
-    When the user clicks on the close button
-    Then the sidebar should be closed
-
-  Scenario: Presenting disclaimer in the sidebar
-    Given the sidebar is opened
-    Then the disclaimer should contain "Privacy & Cookies Policy" link
-    And the disclaimer should contain "Terms of Use, Disclaimer & Privacy Policy" link
-
   Scenario: Wordpress content presence
     Then the user should see page content below "Expert Review" box
 

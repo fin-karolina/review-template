@@ -8,7 +8,7 @@ Given('the user is on a product review page', () => {
 
     case 'AUCCF':
     default: 
-      url = 'https://www.staging-01.finder.tools/citi-clear-platinum';
+      url = 'https://www.staging-01.finder.tools/qantas-premier-credit-card';
   }
   cy.visit(url)
 })
@@ -18,3 +18,7 @@ Then(/the user should see "(.+)" link/, (linkLabel) => {
     .should('exist')
     .and('have.attr', 'href')
 })
+
+Then('the user should see page content below "Expert Review" box', () => {
+  cy.get('.expertBox + * .wordpressContent').should('exist')
+});

@@ -44,3 +44,22 @@ Feature: AUCCF review page
 
   Scenario: Displaying T&C label in the masthead
     Then the user should see "Terms and conditions apply" label in the masthead
+
+  Scenario: Displaying sidebar
+    Given the sidebar is opened
+    Then the sidebar should contain niche category menu
+    And the sidebar should contain providers menu
+    And the sidebar should contain tips box
+    And the sidebar should contain calculator box
+    And the sidebar should contain newsletter form
+    And the sidebar should contain disclaimer
+
+  Scenario: Closing sidebar
+    Given the sidebar is opened
+    When the user clicks on the close button
+    Then the sidebar should be closed
+
+  Scenario: Presenting disclaimer in the sidebar
+    Given the sidebar is opened
+    Then the disclaimer should contain "Privacy & Cookies Policy" link
+    And the disclaimer should contain "Terms of Use, Disclaimer & Privacy Policy" link

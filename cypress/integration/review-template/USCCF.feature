@@ -35,9 +35,6 @@ Feature: USCCF review page
     Then the user should see the advertiser disclosure
     And the advertiser disclosure should be text
 
-  Scenario: Displaying wordpress content
-    Then the user should see the wordpress content 
-
   Scenario: Displaying the disclaimer with Editorial note
     Then the user should see the disclaimer with the Editorial note in the page content
 
