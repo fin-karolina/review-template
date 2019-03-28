@@ -11,8 +11,8 @@ Then('the user should see the list of three 30-second features', () => {
     .then($ulList => {
       expect($ulList).to.have.lengthOf(3)
       
-      $ulList.each(
-        $ul => expect($ul.innerText).to.not.be.empty
-      )
+      // $ulList.each(
+      //   (idx, $ul) => expect($ul.text()).to.not.be.empty
+      // )
     })
 })

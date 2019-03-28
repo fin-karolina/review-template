@@ -1,5 +1,5 @@
 Then('the user should see the sitewide disclaimer', () => {
-  cy.get('.creditCardMasthead__usSitewideDisclaimer').should('be.visble')
+  cy.get('.creditCardMasthead__usSitewideDisclaimer').should('be.visible')
 })
 
 Given('the sitewide disclaimer is displayed', () => {
