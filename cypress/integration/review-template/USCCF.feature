@@ -19,9 +19,6 @@ Feature: USCCF review page
     Given finder's star rating is displayed
     Then finder's star rating should consist of a heading and stars
 
-  Scenario: Displaying 30-second take
-    Then the user should see the 30-second take
-
   Scenario: 30-second take elements
     Then the user should see 30-second take heading
     And the user should see the list of three 30-second features

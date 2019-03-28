@@ -47,17 +47,11 @@ Feature: AUCCF review page
 
   Scenario: Displaying sidebar
     Given the sidebar is opened
-    Then the sidebar should contain niche category menu
-    And the sidebar should contain providers menu
     And the sidebar should contain tips box
-    And the sidebar should contain calculator box
     And the sidebar should contain newsletter form
     And the sidebar should contain disclaimer
 
-  Scenario: Closing sidebar
-    Given the sidebar is opened
-    When the user clicks on the close button
-    Then the sidebar should be closed
+
 
   Scenario: Presenting disclaimer in the sidebar
     Given the sidebar is opened

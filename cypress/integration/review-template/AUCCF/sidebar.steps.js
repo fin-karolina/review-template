@@ -1,33 +1,13 @@
 Given('the sidebar is opened', () => {
-  cy.get('.sideNav__categoryName').click()
-});
-
-Then('the sidebar should contain niche category menu', () => {
-  cy.get('#menu-credit-card-finder').should('be.visible')
-});
-
-Then('the sidebar should contain providers menu', () => {
-  cy.get('.menu-credit-card-providers-container').should('exist')
+  cy.get('.sideNav__buttonAction').click()
 });
 
 Then('the sidebar should contain tips box', () => {
   cy.get('.light-box.popular').should('exist')
 });
 
-Then('the sidebar should contain calculator box', () => {
-  cy.get('.calculator-sidebar').should('exist')
-});
-
 Then('the sidebar should contain newsletter form', () => {
   cy.get('.sidebar_email_signup').should('exist')
-});
-
-When('the user clicks on the close button', () => {
-  cy.get('.sideNav__closeButton').click()
-});
-
-Then('the sidebar should be closed', () => {
-  cy.get('#sideNav__tray').should('not.be.visible')
 });
 
 Then('the sidebar should contain disclaimer', () => {

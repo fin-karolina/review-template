@@ -1,6 +1,3 @@
-Then('the user should see page content below "Expert Review" box', () => {
-  cy.get('.expertBox + * .wordpressContent').should('exist')
-});
 
 Then(/the user should see the (.*) expander section/, (sectionName) => {
   cy.get('.wordpressContent .section-heading').contains(sectionName).should('exist')

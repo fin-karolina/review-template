@@ -82,4 +82,13 @@ Feature: common scenarios applicable for all credit cards niches
     When the CTA button has a link
     Then the link must be a redirect link
 
+  Scenario: Displaying sidebar
+    Given the sidebar is opened
+    Then the sidebar should contain niche category menu
+    And the sidebar should contain providers menu
+    And the sidebar should contain calculator box
 
+  Scenario: Closing sidebar
+    Given the sidebar is opened
+    When the user clicks on the close button
+    Then the sidebar should be closed
